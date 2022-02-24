@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 Main();
 
@@ -11,10 +12,23 @@ void Main()
     MooseSays("H I, I'M  E N T H U S I A S T I C !");
     MooseSays("I really am enthusiastic");
 
-    CanadaQuestion();
-    EnthusiasticQuestion();
-    LoveCSharpQuestion();
-    SecretQuestion();
+    List<string> canadaQuestion = new List<string> { "Is Cananda real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!" };
+    List<string> enthusiasticQuestion = new List<string> { "Are you enthusiastic?", "Yay!", "You should try it!" };
+    List<string> loveCSharpQuestion = new List<string> { "Do you love C# yet?", "Good job sucking up to your instructor!", "You will...oh, yes, you will..." };
+    List<string> secretQuestion = new List<string> { "Do you want to know a secret?", "ME TOO!!!! I love secrets...tell me one!", "Oh, no...secrets are the best, I love to share them!" };
+
+    List<List<string>> questions = new List<List<string>>()
+    {
+        canadaQuestion,
+        enthusiasticQuestion,
+        loveCSharpQuestion,
+        secretQuestion
+    };
+
+    foreach (List<string> question in questions)
+    {
+        Question(question[0], question[1], question[2]);
+    }
 }
 
 void MooseSays(string message)
@@ -81,24 +95,4 @@ void Question(string question, string yesAnswer, string noAnswer)
     {
         MooseSays(noAnswer);
     }
-}
-
-void CanadaQuestion()
-{
-    Question("Is Cananda real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!");
-}
-
-void EnthusiasticQuestion()
-{
-    Question("Are you enthusiastic?", "Yay!", "You should try it!");
-}
-
-void LoveCSharpQuestion()
-{
-    Question("Do you love C# yet?", "Good job sucking up to your instructor!", "You will...oh, yes, you will...");
-}
-
-void SecretQuestion()
-{
-    Question("Do you want to know a secret?", "ME TOO!!!! I love secrets...tell me one!", "Oh, no...secrets are the best, I love to share them!");
 }
